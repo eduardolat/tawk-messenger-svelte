@@ -33,9 +33,9 @@ Log in to your account and go to **Administration > Channels > Chat Widget**.
 
 ### Simple Example
 
-```js
+```html
 <script>
-  import TawkMessengerSvelte from "tawk-messenger-svelte";
+  import TawkMessengerSvelte from 'tawk-messenger-svelte';
 </script>
 
 <TawkMessengerSvelte propertyId="XXXXX" widgetId="XXXXX" />
@@ -50,37 +50,32 @@ it uses the Javascript Api to open and close the widget.
 
 Full api documentation: https://developer.tawk.to/jsapi/
 
-```js
+```html
 <script>
-  import TawkMessengerSvelte from "tawk-messenger-svelte";
+  import TawkMessengerSvelte from 'tawk-messenger-svelte';
 
-  let widget
-  const propertyId = 'XXXXX'
-  const widgetId = 'XXXXX'
+  let widget;
+  const propertyId = 'XXXXX';
+  const widgetId = 'XXXXX';
 
   const handleLoad = () => {
-    alert(`Widget loaded! You can now use the widget API.`)
-  }
+    alert(`Widget loaded! You can now use the widget API.`);
+  };
 
   const handleOpen = () => {
-    widget.maximize()
-  }
+    widget.maximize();
+  };
 
   const handleClose = () => {
-    widget.minimize()
-  }
+    widget.minimize();
+  };
 </script>
 
-<button on:click={handleOpen}>Open</button>
+<button on:click="{handleOpen}">Open</button>
 
-<button on:click={handleClose}>Close</button>
+<button on:click="{handleClose}">Close</button>
 
-<TawkMessengerSvelte
-  {propertyId}
-  {widgetId}
-  bind:this={widget}
-  on:load={handleLoad}
-/>
+<TawkMessengerSvelte {propertyId} {widgetId} bind:this="{widget}" on:load="{handleLoad}" />
 ```
 
 <br/>
