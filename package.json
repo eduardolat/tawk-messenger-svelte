@@ -1,8 +1,30 @@
 {
   "name": "tawk-messenger-svelte",
-  "version": "0.0.1",
-  "type": "module",
+  "version": "1.0.0",
+  "description": "Svelte plugin for Tawk messenger",
+  "keywords": [
+    "svelte",
+    "sveltekit",
+    "svelte-plugin",
+    "sveltekit-plugin",
+    "tawk",
+    "tawkto",
+    "svelte-tawk",
+    "sveltekit-tawk"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eduardolat/tawk-messenger-svelte.git",
+    "repository": "eduardolat/tawk-messenger-svelte"
+  },
+  "homepage": "https://github.com/eduardolat/tawk-messenger-svelte#readme",
+  "bugs": {
+    "url": "https://github.com/eduardolat/tawk-messenger-svelte/issues",
+    "email": "support@tawk.to"
+  },
+  "author": "Eduardo Girón <eduardo.devop@gmail.com> (https://eduardo.lat)",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "dev": "vite dev",
     "build": "svelte-kit sync && svelte-package",
