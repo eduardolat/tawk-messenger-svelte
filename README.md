@@ -1,38 +1,94 @@
-# create-svelte
+<p align="center">
+  <img
+    width="250"
+    src="./static/tawk-svelte.png"
+    alt="Tawk Svelte logo"
+  >
+</p>
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+<br/>
 
-## Creating a project
+## Installation
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+The plugin is available from the node and yarn package managers.
 
 ```bash
-npm run dev
+# Node
+npm install tawk-messenger-svelte
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+# Yarn
+yarn add tawk-messenger-svelte
 ```
 
-## Building
+<br/>
 
-To create a production version of your app:
+## Quickstart
 
-```bash
-npm run build
+Import **tawk-messenger-svelte** into your `.svelte` component. The **propertyId** and **widgetId** will
+be found on your tawk Dashboard.
+
+Log in to your account and go to **Administration > Channels > Chat Widget**.
+
+<br/>
+
+### Simple Example
+
+```js
+<script>
+  import TawkMessengerSvelte from "tawk-messenger-svelte";
+</script>
+
+<TawkMessengerSvelte propertyId="XXXXX" widgetId="XXXXX" />
 ```
 
-You can preview the production build with `npm run preview`.
+<br/>
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+### Advanced Example
+
+In this example we show how to bind and dispatch events to the widget,
+it uses the Javascript Api to open and close the widget.
+
+Full api documentation: https://developer.tawk.to/jsapi/
+
+```js
+<script>
+  import TawkMessengerSvelte from "tawk-messenger-svelte";
+
+  let widget
+  const propertyId = 'XXXXX'
+  const widgetId = 'XXXXX'
+
+  const handleLoad = () => {
+    alert(`Widget loaded! You can now use the widget API.`)
+  }
+
+  const handleOpen = () => {
+    widget.maximize()
+  }
+
+  const handleClose = () => {
+    widget.minimize()
+  }
+</script>
+
+<button on:click={handleOpen}>Open</button>
+
+<button on:click={handleClose}>Close</button>
+
+<TawkMessengerSvelte
+  {propertyId}
+  {widgetId}
+  bind:this={widget}
+  on:load={handleLoad}
+/>
+```
+
+<br/>
+
+## Documentation
+
+It exposes the same api of the official [Tawk Messenger React](https://github.com/tawk/tawk-messenger-react) but ported to Svelte components.
+
+## Disclaimer
+
+This is not an official plugin maintained by the Tawk.to team. It is just a useful tool for whoever wants to integrate Tawk with Svelte. I have nothing to do with Tawk.to
